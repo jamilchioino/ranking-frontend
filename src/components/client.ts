@@ -15,7 +15,7 @@ export interface Result {
     id: number;
     Player: Player;
     PlayerID: number;
-    date: Date;
+    date: string;
     mean: number;
     deviation: number;
     volatility: number;
