@@ -1,5 +1,5 @@
 <template>
-  <div class="home scanlines">
+  <div class="scanlines home">
     <Ranking/>
   </div>
 </template>

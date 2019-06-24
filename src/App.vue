@@ -1,11 +1,30 @@
 <template>
-  <div id="app">
+  <div class="screen" id="app">
     <router-view/>
   </div>
 </template>
 
 <style>
 body {
+  opacity: 1;
+  background-color: #1c276f;
+  animation: preload 4s linear;
+  opacity: 1;
+}
+
+@keyframes preload {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.screen {
   color: black;
   font-family: "Questrial", sans-serif;
   background-color: #1c276f;
@@ -27,7 +46,7 @@ body {
     );
   background-size: 60px 60px;
   background-position: 0 0;
-  animation: slide 4s infinite linear;
+  animation: slide 4s infinite linear, fadein 3s;
 }
 
 @keyframes slide {

@@ -23,7 +23,7 @@ export default class Ranking extends Vue {
 
   async created() {
     const client = new RankingClient();
-    const ranking = await client.getRanking();
+    const ranking = await client.getMockRanking();
     this.ranking = ranking.result;
   }
 }

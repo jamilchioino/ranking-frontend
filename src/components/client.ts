@@ -1,13 +1,14 @@
 import axios, { AxiosInstance } from 'axios';
+import { mockRanking } from '@/stubs/23jun19';
 
 export interface Player {
     id: number;
     nickname: string;
     reduced_nickname: string;
-    name?: string;
+    name: string | null;
     country: string;
-    district?: string;
-    city?: string;
+    district?: string | null;
+    city: string | null;
 }
 
 export interface Result {
@@ -39,5 +40,10 @@ export default class RankingClient {
         const today = Math.floor(Date.now() / 1000)
         const result = await this.client.get<RankingResult>(`/ranking/${today}`)
         return result.data
+    }
+
+    public async getMockRanking(): Promise<RankingResult> {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        return mockRanking;
     }
 }
