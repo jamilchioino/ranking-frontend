@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="ranking.length !== 0" class="center nes-table-responsive">
+    <div v-if="ranking.length !== 0" class="center nes-table-responsive float">
       <table class="nes-table is-bordered is-dark">
         <tbody>
           <tr v-for="(entry, index) in ranking" v-bind:key="entry.id">
@@ -21,7 +21,7 @@ import RankingClient, { RankingResult, Result } from "./client";
 export default class Ranking extends Vue {
   public ranking: Result[] = [];
 
-  async created() {
+  public async created() {
     const client = new RankingClient();
     const ranking = await client.getMockRanking();
     this.ranking = ranking.result;

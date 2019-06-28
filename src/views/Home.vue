@@ -1,5 +1,14 @@
 <template>
-  <div class="scanlines home">
+  <div class="scanlines home" @click="enableAudio()">
+    <iframe
+      id="video"
+      width="1"
+      height="1"
+      src="//www.youtube.com/embed/cU_QuldpVG0?rel=0"
+      frameborder="0"
+      allowfullscreen
+      ref="iframe"
+    ></iframe>
     <Ranking/>
   </div>
 </template>
@@ -14,7 +23,14 @@ import RankingClient from "@/components/client";
     Ranking
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private audioStarted = false;
+
+  public enableAudio() {
+    const frame = this.$refs.iframe as HTMLIFrameElement;
+    frame.src += "&autoplay=1";
+  }
+}
 </script>
 
 <style>

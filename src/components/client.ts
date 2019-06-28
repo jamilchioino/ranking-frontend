@@ -28,22 +28,22 @@ export interface RankingResult {
 
 export default class RankingClient {
 
-    private client: AxiosInstance
+    private client: AxiosInstance;
 
     constructor() {
         this.client = axios.create({
-            baseURL: "//206.189.224.54:8080"
+            baseURL: "//206.189.224.54:8080",
         })
     }
 
     public async getRanking(): Promise<RankingResult> {
         const today = Math.floor(Date.now() / 1000)
         const result = await this.client.get<RankingResult>(`/ranking/${today}`)
-        return result.data
+        return result.data;
     }
 
     public async getMockRanking(): Promise<RankingResult> {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         return mockRanking;
     }
 }
